@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Homepage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<p>Hello {{ firstName }} !!!</p>
+  <ion-button (click)="changeName()"
+            color="success" fill="outline">Click me!!</ion-button>
+  <h4>String</h4>
+  <p>miniscule: {{ chain | lowercase }}</p>
+  <p>majuscule: {{ chain | uppercase }}</p>
+  <p>title: {{ chain | titlecase }}</p>
+  <h4>Numbers</h4>
+  <p>non formate: {{ nombre }}</p>
+  <p>formate: {{ nombre|number:'0.2-2' }}</p>
+  <p>formate: {{ nombre|currency:'EUR' }}</p>
+  <h4>Date</h4>
+  <p>formate {{ date | date : 'dd/MM/yyyy'}}</p>
+
+  <h4>*ngIf</h4>
+  <div *ngIf="isAdmin; else toto">
+    <p>Contenu reserve aux administrateurs</p>
+  </div>
+  <ng-template #toto>
+    <p>Contenu test</p>
+  </ng-template>
+
+  <h4>Boucles</h4>
+  <ul>
+    <li *ngFor="let item of list">
+        {{ item }}
+    </li>
+  </ul>
+</ion-content>

@@ -1,0 +1,30 @@
+.container {
+    margin: 0;
+    padding: 0;
+    .time {
+        margin: 50px 0 40px 0;
+        font-size:  30px;
+        text-align: center;
+    }
+    
+    .buttons {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .time-save {
+        padding: 0;
+        margin: 0;
+        margin-top: 40px;
+        li {
+            list-style: none;
+            padding: 0;
+            margin: 0 15px;
+
+            hr {
+                border-top: 1px solid gainsboro;
+
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Chrono</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding container">
+  <div class="time">
+    {{ time | toTime }}
+  </div>
+  <div class="buttons">
+    <ion-button (click)="stop()" color="danger" [disabled]= "!idInterval">Stop</ion-button>
+    <ion-button (click)="start()" color="success" [disabled]="idInterval">Start</ion-button>
+    <ion-button (click)="save()" color="warning" [disabled]="times.length >= 10 || !idInterval">Save</ion-button>
+  </div>
+  <ul class="time-save">
+    <li *ngFor="let t of times">
+      {{ t | toTime }}
+      <hr />
+    </li>
+  </ul>
+
+</ion-content>
