@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-chrono',
@@ -10,7 +11,10 @@ export class ChronoPage implements OnInit {
   idInterval: any;
   times: number[];
 
-  constructor() { }
+  constructor(
+    // dependency injection
+    private alertCrtl: AlertController
+  ) { }
 
   ngOnInit() {
     this.time = 0;
@@ -18,9 +22,20 @@ export class ChronoPage implements OnInit {
   }
 
   stop() {
-    clearInterval(this.idInterval); 
-    this.idInterval = null; 
-
+    this.alertCrtl.create({
+      header: 'Confirmation',
+      message: 'Are you sure you want to stop?',
+      buttons: [{
+        text: 'Ok',
+        handler: () => {
+          clearInterval(this.idInterval);
+          this.idInterval = null;
+        }
+      }, 'cancel']
+    }).then(a => a.present());
+    
+    // clearInterval(this.idInterval); 
+    // this.idInterval = null; 
   }
   start() {
     this.times = [];
