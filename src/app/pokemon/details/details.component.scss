@@ -1,0 +1,23 @@
+.images {
+    display: flex;
+    justify-content: space-around;
+    img {
+        width: 40%;
+        height: auto;
+    }
+}
+ion-content {
+    --background: rgb(44, 162, 201);
+}
+.info {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 10px 20px;
+    background-color: white;
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.2);
+}
