@@ -11,9 +11,11 @@
   <ion-button (click)="scan()">Scan a barcode</ion-button>
   
   <div *ngIf="model">
-    <p>Product Name: {{model.product.product_name}}</p>
-    <ul>
-      Per 100g Nutrition Facts:
+    <p><strong>Product Name: </strong> {{model.product.product_name}}</p>
+    <br />
+    <p><strong>Nutrition Facts Per 100g:</strong></p>
+    <br />
+    <ul>      
       <li>
         Energy: {{ model.product.nutriments.energy }} kJ
       </li>
