@@ -41,11 +41,11 @@ export class CartPage implements OnInit {
     const as = await this.actionSheetCtr.create({
       header: '',
       buttons: [
-        { text: 'Cocher', handler: () => {
+        { text: 'Check/Uncheck', handler: () => {
           item.isChecked = !item.isChecked;
           this.save();
         }},
-        { text: 'Supprimer', handler: () =>{
+        { text: 'Delete', handler: () =>{
           // First way: using splice
           const i = this.items.indexOf(item);
           this.items.splice(i, 1);

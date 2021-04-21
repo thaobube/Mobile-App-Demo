@@ -3,16 +3,31 @@
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>scanner</ion-title>
+    <ion-title>Food Scanner</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="scan()">Scanner un codebarre</ion-button>
+  <ion-button (click)="scan()">Scan a barcode</ion-button>
+  
   <div *ngIf="model">
+    <p>Product Name: {{model.product.product_name}}</p>
     <ul>
-      <li *ngFor="let ing of model.product.ingredients">
-        {{ ing.text }}
+      Per 100g Nutrition Facts:
+      <li>
+        Energy: {{ model.product.nutriments.energy }} kJ
+      </li>
+      <li>
+        Carbohydrates: {{ model.product.nutriments.carbohydrates }} g
+      </li>
+      <li>
+        Fat: {{ model.product.nutriments.fat }} g
+      </li>
+      <li>
+        Proteins: {{ model.product.nutriments.proteins }} g
+      </li>
+      <li>
+        Salt: {{ model.product.nutriments.salt }} g
       </li>
     </ul>
   </div>

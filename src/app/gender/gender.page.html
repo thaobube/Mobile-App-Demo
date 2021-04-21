@@ -3,22 +3,26 @@
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>gender</ion-title>
+    <ion-title>Gender Checker</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-item>
-    <ion-label position="floating">Prenom</ion-label>
+    <ion-label position="floating">First Name</ion-label>
     <ion-input [(ngModel)]="firstName"></ion-input>
   </ion-item>
 <!-- display select all the countries-->
-<ion-select [(ngModel)]="selectedCountry">
-  <ion-select-option [value]="null"> - </ion-select-option>
-  <ion-select-option [value]="item" *ngFor="let item of countries">{{item.name}}</ion-select-option>
-</ion-select>
-  <ion-button (click)="search()">Rechercher</ion-button>
-  <p *ngIf="result">
-    <ion-progress-bar [color]="result.gender === 'male'?'primary':'danger'" [value]="result.probability"></ion-progress-bar>    
-  </p>
+  <ion-item>
+    <ion-label position="floating">Select Country</ion-label>
+    <ion-select [(ngModel)]="selectedCountry">
+      <ion-select-option [value]="null"> - </ion-select-option>
+      <ion-select-option [value]="item" *ngFor="let item of countries">{{item.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+    <ion-button (click)="search()">Search</ion-button>
+    <p *ngIf="result">
+      <ion-label>{{ result.gender | titlecase}}</ion-label>
+      <ion-progress-bar [color]="result.gender === 'male'?'primary':'danger'" [value]="result.probability"></ion-progress-bar>    
+    </p> 
 </ion-content>
